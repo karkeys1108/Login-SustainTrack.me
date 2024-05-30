@@ -51,12 +51,12 @@ logoutButton.addEventListener('click', () => {
   localStorage.removeItem('loggedInUserId');
   signOut(auth)
     .then(() => {
-      window.location.href = 'lscript.html';
+      window.location.href = 'index.html';
     })
     .catch((error) => {
       console.error('Error Signing out:', error);
     });
 });
 document.getElementById('goMainPage').onclick = function() {
-    window.location.href = 'Home Page C.html';
+    window.location.href = 'https://karkeys1108.github.io/SustainTrack.me/';
 };
