@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .profile-container {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+        .profile-container img {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .profile-container h1 {
+            margin: 10px 0 5px;
+            font-size: 20px;
+            color: #333;
+        }
+        .profile-container p {
+            color: #666;
+            font-size: 16px;
+            margin: 3px 0;
+        }
+        .profile-container .gamification {
+            margin: 10px 0;
+            text-align: left;
+        }
+        .gamification h2 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .gamification .stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        .stats div {
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            width: 48%;
+        }
+        .stats div p {
+            margin: 3px 0;
+            font-size: 14px;
+            color: #333;
+        }
+        .gamification .progress {
+            margin-bottom: 15px;
+        }
+        .progress .progress-bar {
+            background: #f0f0f0;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+        .progress .progress-bar div {
+            height: 15px;
+            background: linear-gradient(90deg, #51830e, #a2ca70);
+            width: 70%;
+        }
+        .progress p {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+        }
+        .profile-container button {
+            margin-top: 15px;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            background: linear-gradient(90deg, #51830e, #a2ca70);
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .profile-container button:hover {
+            background: linear-gradient(90deg, #a2ca70, #51830e);
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <h1>Username</h1>
+        <div>First Name: <span id="loggedUserFName"></span></div>
+        <div>Last Name: <span id="loggedUserLName"></span></div>
+        <div>Email: <span id="loggedUserEmail"></span></div>
+
+        <div class="gamification">
+            <h2>Achievements</h2>
+            <div class="stats">
+                <div>
+                    <p><strong>Points Obtained</strong></p>
+                    <p>0</p>
+                </div>
+                <div>
+                    <p><strong>Goals Achieved</strong></p>
+                    <p>0/10</p>
+                </div>
+            </div>
+            <div class="progress">
+                <div class="progress-bar">
+                    <div style="width: 0%;"></div>
+                </div>
+                <p>Goal 1 Progress: 0%</p>
+                <div class="progress-bar">
+                    <div style="width: 0%;"></div>
+                </div>
+                <p>Goal 2 Progress:0%</p>
+            </div>
+        </div>
+        <button id="logout">Logout</button>
+        <button id="goMainPage">Go to Main Page</button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script type="module" src="./Profile.js"></script>
+</body>
+</html>
