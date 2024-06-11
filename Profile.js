@@ -51,12 +51,34 @@ logoutButton.addEventListener('click', () => {
   localStorage.removeItem('loggedInUserId');
   signOut(auth)
     .then(() => {
-      window.location.href = 'index.html';
+      window.location.href = 'login.html';
     })
     .catch((error) => {
       console.error('Error Signing out:', error);
     });
 });
 document.getElementById('goMainPage').onclick = function() {
-    window.location.href = 'https://karkeys1108.github.io/SustainTrack.me/';
+    window.location.href = 'index.html';
 };
+document.addEventListener("DOMContentLoaded", function() {
+  const profileImg = document.getElementById("profile-img");
+  const imageUpload = document.getElementById("image-upload");
+
+  // Add event listener to the image upload input
+  imageUpload.addEventListener("change", function() {
+      const file = this.files[0]; // Get the selected file
+
+      // Check if a file is selected and it's an image
+      if (file && file.type.startsWith("image/")) {
+          const reader = new FileReader();
+
+          // Set up the reader to read the selected image file
+          reader.onload = function(event) {
+              profileImg.src = event.target.result; // Set the profile image source to the selected image
+          };
+
+          // Read the selected image file as a data URL
+          reader.readAsDataURL(file);
+      }
+  });
+});
