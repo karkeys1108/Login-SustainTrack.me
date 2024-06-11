@@ -18,7 +18,6 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// Function to show messages
 function showMessage(message, divId) {
   var messageDiv = document.getElementById(divId);
   messageDiv.style.display = "block";
@@ -29,14 +28,28 @@ function showMessage(message, divId) {
   }, 5000);
 }
 
-// Sign up event listener
+
 const signUp = document.getElementById('submitSignUp');
 signUp.addEventListener('click', (event) => {
   event.preventDefault();
   const email = document.getElementById('rEmail').value;
   const password = document.getElementById('rPassword').value;
+  const confirmPassword = document.getElementById('confirmPassword').value;
   const firstName = document.getElementById('fName').value;
   const lastName = document.getElementById('lName').value;
+
+  // Password validation
+  const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+  if (!password.match(passwordRegex)) {
+    showMessage('Password must be at least 8 characters long and contain at least one alphabet and one digit', 'signUpMessage');
+    return;
+  }
+
+  // Confirm password validation
+  if (password !== confirmPassword) {
+    showMessage('Passwords do not match', 'signUpMessage');
+    return;
+  }
 
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
@@ -51,7 +64,7 @@ signUp.addEventListener('click', (event) => {
       return setDoc(docRef, userData);
     })
     .then(() => {
-      window.location.href = 'index.html';
+      window.location.href = 'Login.html';
     })
     .catch((error) => {
       const errorCode = error.code;
