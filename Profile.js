@@ -58,7 +58,7 @@ logoutButton.addEventListener('click', () => {
     });
 });
 document.getElementById('goMainPage').onclick = function() {
-    window.location.href = 'index.html';
+    window.location.href = 'https://karkeys1108.github.io/SustainTrack.me/';
 };
 document.addEventListener("DOMContentLoaded", function() {
   const profileImg = document.getElementById("profile-img");
